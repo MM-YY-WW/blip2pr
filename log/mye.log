@@ -1,0 +1,17 @@
+INFO:root:Best Test results at Epoch0, Acc: 0.14985422740524781, F1: 0.09711692380973101, Precision: 0.1687417957840024, Recall: 0.14985422740524781
+INFO:root:lr = 1e-06, epoch = 100, dataset = mye, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = manual
+INFO:root:./plot_results/2024_01_09_10_31_23_mye_GenePT_attention.png
+
+INFO:root:Best Test results at Epoch31, Acc: 0.10466472303206997, F1: 0.09019575480350993, Precision: 0.14731118775238364, Recall: 0.10466472303206997
+INFO:root:lr = 1e-06, epoch = 100, dataset = mye, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_09_10_44_32_mye_GenePT_attention.png
+INFO:root:Best Test results at Epoch0, Acc: 0.03498542274052478, F1: 0.023532368267794694, Precision: 0.09008245518026063, Recall: 0.03498542274052478
+INFO:root:Best Test results at Epoch0, Acc: 0.19708454810495626, F1: 0.08573830945353025, Precision: 0.05836848733439786, Recall: 0.19708454810495626
+INFO:root:Best Test results at Epoch0, Acc: 0.026530612244897958, F1: 0.010198624877039215, Precision: 0.009105024261440052, Recall: 0.026530612244897958
+INFO:root:Best Test results at Epoch0, Acc: 0.08134110787172012, F1: 0.0158808025069378, Precision: 0.008803937542204113, Recall: 0.08134110787172012
+INFO:root:Best Test results at Epoch0, Acc: 0.03469387755102041, F1: 0.03004795723873842, Precision: 0.04674708335601731, Recall: 0.03469387755102041
+INFO:root:lr = 0.0001, epoch = 1, dataset = mye, seed = 0, batch_size = 128, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = zeros
+INFO:root:./plot_results/2024_01_09_14_04_09_mye_GenePT_attention.png
+INFO:root:Best Test results at Epoch23, Acc: 0.11924198250728862, F1: 0.055625518506724626, Precision: 0.047711812195305146, Recall: 0.11924198250728862
+INFO:root:lr = 1e-06, epoch = 30, dataset = mye, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_09_14_21_33_mye_GenePT_attention.png

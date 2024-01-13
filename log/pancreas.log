@@ -1,0 +1,15 @@
+INFO:root:Best Test results at Epoch7, Acc: 0.11000474158368895, F1: 0.13910716661289396, Precision: 0.2664862520999217, Recall: 0.11000474158368895
+INFO:root:lr = 1e-06, epoch = 100, dataset = pancreas, seed = 0, batch_size = 128, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = manual
+INFO:root:./plot_results/2024_01_09_09_59_48_pancreas_GenePT_attention.png
+
+INFO:root:Best Test results at Epoch15, Acc: 0.14461830251303937, F1: 0.20148163939209054, Precision: 0.41837844368304683, Recall: 0.14461830251303937
+INFO:root:lr = 1e-06, epoch = 100, dataset = pancreas, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = manual
+INFO:root:./plot_results/2024_01_09_10_11_06_pancreas_GenePT_attention.png
+
+INFO:root:Best Test results at Epoch3, Acc: 0.15694642010431484, F1: 0.09607416053173706, Precision: 0.1418707994305385, Recall: 0.15694642010431484
+INFO:root:lr = 1e-06, epoch = 100, dataset = pancreas, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_09_10_34_11_pancreas_GenePT_attention.png
+
+INFO:root:Best Test results at Epoch12, Acc: 0.3032242769084874, F1: 0.3310625538656245, Precision: 0.3658667705448879, Recall: 0.3032242769084874
+INFO:root:lr = 1e-06, epoch = 100, dataset = pancreas, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_09_14_53_27_pancreas_GenePT_attention.png

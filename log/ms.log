@@ -1,0 +1,6 @@
+INFO:root:Best Test results at Epoch92, Acc: 0.2508924018357981, F1: 0.23174912823392244, Precision: 0.22960686021512394, Recall: 0.2508924018357981
+INFO:root:lr = 1e-06, epoch = 100, dataset = ms, seed = 0, batch_size = 64, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_10_17_08_ms_GenePT_attention.png
+INFO:root:Best Test results at Epoch80, Acc: 0.3495665476797552, F1: 0.315699439171296, Precision: 0.2934331724242913, Recall: 0.3495665476797552
+INFO:root:lr = 1e-05, epoch = 100, dataset = ms, seed = 0, batch_size = 32, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_13_39_08_ms_GenePT_attention.png

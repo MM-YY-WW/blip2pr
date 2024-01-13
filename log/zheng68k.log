@@ -1,0 +1,15 @@
+INFO:root:Best Test results at Epoch91, Acc: 0.6056975894813733, F1: 0.5812096557687083, Precision: 0.5863086171846974, Recall: 0.6056975894813733
+INFO:root:lr = 1e-05, epoch = 100, dataset = zheng68k, seed = 0, batch_size = 512, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_12_27_34_zheng68k_GenePT_attention.png
+INFO:root:Best Test results at Epoch69, Acc: 0.5935719503287071, F1: 0.5337374403146516, Precision: 0.5362174147619806, Recall: 0.5935719503287071
+INFO:root:lr = 0.0001, epoch = 100, dataset = zheng68k, seed = 0, batch_size = 512, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_13_32_22_zheng68k_GenePT_attention.png
+INFO:root:Best Test results at Epoch155, Acc: 0.6809349890430971, F1: 0.6784135714763246, Precision: 0.6915459427417154, Recall: 0.6809349890430971
+INFO:root:lr = 1e-05, epoch = 200, dataset = zheng68k, seed = 0, batch_size = 128, model_name = GenePT_attention, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_14_10_58_zheng68k_GenePT_attention.png
+INFO:root:Best Test results at Epoch2, Acc: 0.6506208911614317, F1: 0.6255285903471143, Precision: 0.6761710417283016, Recall: 0.6506208911614317
+INFO:root:lr = 1e-05, epoch = 200, dataset = zheng68k, seed = 0, batch_size = 128, model_name = GenePT_Exponly, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_14_39_53_zheng68k_GenePT_Exponly.png
+INFO:root:Best Test results at Epoch189, Acc: 0.5948867786705625, F1: 0.5661675506578862, Precision: 0.5938477240758749, Recall: 0.5948867786705625
+INFO:root:lr = 1e-05, epoch = 200, dataset = zheng68k, seed = 0, batch_size = 128, model_name = GenePT_W, hidden_k_size = 512, missing_summary = ones
+INFO:root:./plot_results/2024_01_10_14_54_49_zheng68k_GenePT_W.png
