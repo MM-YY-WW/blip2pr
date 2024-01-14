@@ -78,8 +78,8 @@ def plot_results(train_acc_list, test_acc_list, train_precision_list, test_preci
 
     # Set up the figure and subplots
     fig, axs = plt.subplots(2, 4, figsize=(16, 8))
-    fig.suptitle(f"lr = {args.learning_rate}, epoch = {args.epoch}, dataset = {args.dataset}, seed = {args.seed}, batch_size = {args.batch_size}, model_name = {args.model_name}, hidden_k_size = {args.hidden_k_size}, missing_summary = {args.missing_summary}")
-    logging.info(f"lr = {args.learning_rate}, epoch = {args.epoch}, dataset = {args.dataset}, seed = {args.seed}, batch_size = {args.batch_size}, model_name = {args.model_name}, hidden_k_size = {args.hidden_k_size}, missing_summary = {args.missing_summary}")
+    fig.suptitle(f"lr = {args.learning_rate}, epoch = {args.epoch}, dataset = {args.dataset}, seed = {args.seed}, batch_size = {args.batch_size}, model_name = {args.model_name}, hidden_k_size = {args.hidden_k_size}, missing_summary = {args.missing_summary}, scbert_out_model = {args.scbert_out_model}")
+    logging.info(f"lr = {args.learning_rate}, epoch = {args.epoch}, dataset = {args.dataset}, seed = {args.seed}, batch_size = {args.batch_size}, model_name = {args.model_name}, hidden_k_size = {args.hidden_k_size}, missing_summary = {args.missing_summary}, scbert_out_model = {args.scbert_out_model}")
     # Plot training accuracy
     axs[0, 0].plot(train_acc_list, label='Train Accuracy')
     axs[0, 0].set_title('Train Accuracy')
@@ -203,7 +203,7 @@ def main():
                         'GenePT_attention': X K Kt gene_summary_embedding\
                         'scBERT': use scBERT to generate gene embedding rather than just use original expression level")
     parser.add_argument("--model_path", type=str, default = './pretrained_model/', help="the folder path to load pretrain model")
-    parser.add_argument("--device", type=int, default=0, help="which gpu to choose")
+    parser.add_argument("--device", type=int, default=4, help="which gpu to choose")
     parser.add_argument("--gene_summary_path", type=str, default = './gene_summary/data_embedding/GPT_3_5_gene_embeddings.pickle')
     parser.add_argument("--decay", type=float, default=0)
     parser.add_argument("--hidden_k_size", type=int, default = 512, help = "the dimension of the k matrix in GenePT_attention model")
@@ -214,6 +214,7 @@ def main():
                         'auto': request openai api to automatically generate missing embedding, \
                         'manual': use predefined summary \
                         'random': use random generated embedding from uniform distribution" )
+    parser.add_argument("--scbert_out_model", type=str, default = 'GenePT_attention')
     parser.add_argument("--gene_summary_manual_path", type=str, default = "./gene_summary/manual/GPT_3_5_gene_embeddings_generated.pickle")
     parser.add_argument("--log_path", type=str, default = "./log/", help="log folder")
     parser.add_argument("--plot", type=int, default=1, help='0 for not plot results, 1 plot results of acc, precision, f1, recall')
@@ -228,7 +229,7 @@ def main():
     train_true_label = train_dataset.get_true_label()
     test_true_label = test_dataset.get_true_label()
     gene_names, gene_summary_embedding = train_dataset.get_gene_summary_embedding()
-    gene_summary_embedding = torch.as_tensor(gene_summary_embedding)
+    gene_summary_embedding = torch.as_tensor(gene_summary_embedding, device = device)
     train_loader = DataLoader(train_dataset,  batch_size=args.batch_size)
     test_loader = DataLoader(test_dataset,  batch_size=args.batch_size)
     num_of_gene = len(train_loader.dataset[0][0])
@@ -276,7 +277,13 @@ def main():
         for param in model.performer.net.layers[-2].parameters():
             param.requires_grad = True
         #model.to_out = scBERT_Identity(dropout = 0., h_dim=128, out_dim = len(train_true_label), num_gene=num_of_gene+1)
-        model.to_out = GenePT_Exponly(num_class=len(train_true_label), num_gene=num_of_gene+1)
+        if args.scbert_out_model == 'GenePT_Exponly':
+            model.to_out = GenePT_Exponly(num_class=len(train_true_label), num_gene=num_of_gene+1)
+        elif args.scbert_out_model == 'GenePT_W':
+            model.to_out = GenePT_W(num_class=len(train_true_label), text_embedding = gene_summary_embedding)
+        elif args.scbert_out_model == 'GenePT_attention':
+            model.to_out = GenePT_attention(num_class=len(train_true_label),hidden_k_size=args.hidden_k_size, num_gene=num_of_gene, text_embedding = gene_summary_embedding)
+
 
     loss_fn = nn.CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr = args.learning_rate, weight_decay=args.decay)
